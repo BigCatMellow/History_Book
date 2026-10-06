@@ -18,6 +18,13 @@ The book is designed to:
 - [AGENTS.md](AGENTS.md) — repository-wide operating contract for agents working on this project.
 
 
+## Book manuscript
+
+- [Book index](book/README.md)
+- [How America's Political Parties Changed](book/entries/how-americas-political-parties-changed.md) — first reader-facing entry; current status: `PUBLICATION DRAFT — READY_FOR_REVIEW`.
+- [Party Realignment Source Package](research/party-realignment/SOURCE_PACKAGE.md)
+- [Independent Review Request](research/party-realignment/REVIEW_REQUEST.md)
+
 ## Worked examples
 
 ### Party change and ideological realignment
