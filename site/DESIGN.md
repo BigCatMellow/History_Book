@@ -38,9 +38,11 @@ content hierarchy > decoration
 
 ### Typography
 
-- body: system sans for highly legible mobile reading;
-- headings: rounded/system display stack for friendly chapter identity;
-- restrained type scale with short line lengths.
+- body/UI: **Inter** with system sans fallback for highly legible reading and controls;
+- chapter/display headings: **Source Serif 4** with Georgia fallback, creating a clearer editorial/textbook voice;
+- labels, controls, and metadata remain sans-serif so hierarchy is visible before the reader processes the words;
+- body prose stays on a narrower reading measure while diagrams, comparisons, and teaching tiles may use the wider content column;
+- avoid forcing paragraph-like copy into small concept tiles. Tile descriptors should be short noun phrases or one compact sentence.
 
 ### Color
 
@@ -56,16 +58,18 @@ Use a neutral educational palette:
 
 Color never carries political meaning by itself.
 
-### Shape
+### Shape and depth
 
 - moderate radius only on true independent objects;
-- no card soup;
-- no nested card stacks;
-- dividers, spacing, and typography carry most hierarchy.
+- compact teaching tiles use tighter radii and shallow physical depth;
+- major historical transitions may use an occasional larger “era shift” surface;
+- no card soup and no nested card stacks;
+- dividers, type scale, full-width background rhythm, and spacing carry most hierarchy;
+- the hero may use a subtle textbook-grid pattern because it establishes page identity and orientation rather than acting as generic decoration.
 
 ## Information architecture
 
-The page is one reading path:
+The page is one reading path, with a small horizontally scrollable era navigator for orientation rather than tabbed content:
 
 ```text
 hero / big idea
@@ -166,3 +170,28 @@ Before calling the surface done:
 - check reduced-motion behavior;
 - inspect at 200% zoom;
 - confirm no source or interpretation wording changed from the canonical entry without updating the manuscript/source package.
+
+
+## Spacing rule for teaching tiles
+
+Small interactive concept boxes should not behave like miniature article cards.
+
+For the four-part party model:
+
+- keep title and descriptor visually close;
+- remove forced tall minimum heights;
+- use equal grid columns only when the copy comfortably fits;
+- shorten descriptors rather than accepting ugly wrap fragments;
+- let the surrounding grid create separation;
+- preserve a minimum comfortable tap target through padding, not empty vertical space.
+
+Preferred microcopy:
+
+```text
+Party      → The name and institution.
+Coalition  → The voters and groups.
+Faction    → Competing wings.
+Ideology   → Political beliefs.
+```
+
+This follows the Design Bible's cognitive-load and anti-card-soup guidance: the tile's job is fast recognition and entry into a modal, not to carry explanatory prose.
