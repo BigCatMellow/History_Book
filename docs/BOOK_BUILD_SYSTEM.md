@@ -857,6 +857,32 @@ The exact bridge still needs evidence. The diagram is only the structure of the 
 
 ---
 
+# 18A. HEADER FRAMING RULE
+
+Headings should **orient, not argue**.
+
+Especially on politically charged or contested material, avoid headings that sound like they are correcting an opponent, defending a side, or trying to persuade the reader before the evidence is presented.
+
+Prefer descriptive headings:
+
+```text
+Emancipation, abolition, and Reconstruction
+The New Deal and Black voters
+Civil rights and the party coalitions
+The Southern realignment
+```
+
+Avoid advocacy-sounding headings such as:
+
+```text
+Republicans really did lead...
+What critics get wrong...
+The truth about...
+Yes, Democrats really were...
+```
+
+The body may state strong conclusions when the evidence supports them. The heading should not make the reader feel that the section has already chosen an argument to win.
+
 # 19. MYTH / MEMORY RULE
 
 Use this section when a popular historical claim materially affects modern understanding.
