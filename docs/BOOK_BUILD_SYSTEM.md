@@ -857,6 +857,36 @@ The exact bridge still needs evidence. The diagram is only the structure of the 
 
 ---
 
+# 18.5. EXPLANATORY POSTURE RULE
+
+The prose should sound like it is **explaining a historical problem**, not answering an opponent.
+
+Avoid rhetorical habits that make the reader feel they have entered an argument:
+
+- repeated negation-first framing (`this is not...`, `what people get wrong...`);
+- debate language (`the mistake is...`, `this proves...`, `the truth is...`);
+- verdict language before the evidence is shown (`all of that is true`, `obviously`, `clearly`);
+- imagined partisan opponents unless the historical dispute itself requires them;
+- second-person correction (`do not think...`, `you should understand...`) when a descriptive explanation will work;
+- loaded transitions such as `actually`, `really did`, `of course`, or `even` when they imply surprise or prior disbelief.
+
+Prefer:
+
+```text
+The 1960 platforms show...
+The coalition contained...
+The evidence supports...
+This change occurred over several decades...
+One interpretation emphasizes...
+The available evidence does not establish...
+```
+
+Strong conclusions are allowed when evidence supports them. The neutrality requirement is about **rhetorical posture**, not weakening well-supported facts.
+
+A useful test:
+
+> If a reader strongly identified with either modern party, would the prose still feel like a description of the evidence rather than an argument aimed at them?
+
 # 18A. HEADER FRAMING RULE
 
 Headings should **orient, not argue**.
