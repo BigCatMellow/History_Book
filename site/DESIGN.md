@@ -1,0 +1,168 @@
+# Interactive Textbook Design — Party Realignment
+
+- Surface: `site/party-realignment.html`
+- Product truth: the page teaches a novice reader how American party coalitions changed without asking them to absorb a wall of text.
+- Design target: **mobile-first, Playskool-simple, textbook-serious**.
+- Canonical content: [How America's Political Parties Changed](../book/entries/how-americas-political-parties-changed.md)
+
+## Design Bible sources used
+
+- [Project Package](https://github.com/BigCatMellow/Pilot_Projects/blob/main/ai-design-bible/PROJECT-PACKAGE.md)
+- [Foundations](https://github.com/BigCatMellow/Pilot_Projects/blob/main/ai-design-bible/FOUNDATIONS.md)
+- [Interaction and Information](https://github.com/BigCatMellow/Pilot_Projects/blob/main/ai-design-bible/INTERACTION-AND-INFORMATION.md)
+- [Visual Systems](https://github.com/BigCatMellow/Pilot_Projects/blob/main/ai-design-bible/VISUAL-SYSTEMS.md)
+- [Accessibility](https://github.com/BigCatMellow/Pilot_Projects/blob/main/ai-design-bible/ACCESSIBILITY.md)
+- [Anti-Patterns](https://github.com/BigCatMellow/Pilot_Projects/blob/main/ai-design-bible/ANTI-PATTERNS.md)
+
+## Product priorities
+
+```text
+novice comprehension > density
+historical neutrality > partisan visual shorthand
+linear reading flow > dashboard/card layout
+recognition > recall
+progressive disclosure > footnote clutter
+large touch targets > compact chrome
+content hierarchy > decoration
+```
+
+## Visual direction
+
+### Tone
+
+- friendly;
+- substantial;
+- uncomplicated;
+- editorial rather than app-dashboard;
+- classroom clarity without looking juvenile.
+
+### Typography
+
+- body: system sans for highly legible mobile reading;
+- headings: rounded/system display stack for friendly chapter identity;
+- restrained type scale with short line lengths.
+
+### Color
+
+Do **not** use contemporary red-vs-blue party coding as the primary visual language.
+
+Use a neutral educational palette:
+
+- warm paper background;
+- dark ink;
+- slate/navy structural color;
+- gold for emphasis;
+- mint/lavender/clay for concept groups.
+
+Color never carries political meaning by itself.
+
+### Shape
+
+- moderate radius only on true independent objects;
+- no card soup;
+- no nested card stacks;
+- dividers, spacing, and typography carry most hierarchy.
+
+## Information architecture
+
+The page is one reading path:
+
+```text
+hero / big idea
+→ four-layer party model
+→ Democrats vs Whigs
+→ slavery breaks the old system
+→ new Republicans
+→ emancipation / Reconstruction
+→ mixed-party mid-century politics
+→ New Deal
+→ 1948
+→ 1960 / 1964
+→ gradual Southern realignment
+→ race and other causes
+→ ideological sorting
+→ slogan check
+→ modern reading rule
+→ transfer exercise
+```
+
+The reader can skim section labels, but no tab system fragments the story.
+
+## Modal use
+
+Modals are reserved for **bounded detours**:
+
+1. **Party anatomy** — four-layer model.
+2. **Glossary** — realignment, coalition, faction, ideology, Dixiecrat.
+3. **Evidence & sources** — grouped source package.
+4. **1964 coalition** — compact factual detail that would otherwise interrupt the main flow.
+
+Use native `<dialog>` so keyboard/focus semantics are provided by the platform. Each dialog has:
+
+- visible title;
+- visible Close button;
+- Escape behavior;
+- backdrop;
+- focus return after close;
+- no essential primary reading hidden only in a modal.
+
+## Mobile behavior
+
+Base layout is designed for ~320–480px widths first.
+
+- single column;
+- minimum comfortable touch targets;
+- no hover-only interactions;
+- comparison tables become stacked comparison blocks;
+- sticky reading-progress bar uses minimal height;
+- long rows never require precise horizontal panning;
+- dialogs become bottom-sheet-like on narrow screens but remain native dialogs.
+
+At wider widths:
+
+- content gains breathing room;
+- selected comparisons become two-column;
+- line length remains constrained.
+
+## Accessibility
+
+Target: WCAG 2.2 AA behavior.
+
+- semantic headings and landmarks;
+- skip link;
+- native buttons/links/details/dialogs;
+- visible focus;
+- reduced-motion support;
+- no color-only meaning;
+- adequate target sizes;
+- readable contrast;
+- text survives zoom/reflow;
+- modal background unavailable while open through native `showModal()`.
+
+## Anti-pattern checks
+
+Explicitly avoid:
+
+- card soup;
+- rounded-everything;
+- giant SaaS hero;
+- gradients for generic polish;
+- icon tiles over every heading;
+- low-contrast gray;
+- hover-only content;
+- decorative party red/blue;
+- animation for its own sake;
+- hiding necessary context in modals.
+
+## Verification
+
+Before calling the surface done:
+
+- validate markup;
+- inspect at narrow mobile width and desktop width;
+- keyboard through all controls;
+- open/close every dialog with keyboard;
+- check focus visibility;
+- check reduced-motion behavior;
+- inspect at 200% zoom;
+- confirm no source or interpretation wording changed from the canonical entry without updating the manuscript/source package.
