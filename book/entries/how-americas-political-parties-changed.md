@@ -25,7 +25,7 @@ It is useful to separate four things:
 | **Party organization** | The institution and name: Democratic Party, Republican Party |
 | **Coalition** | The voters, regions, social groups, economic interests, and organizations supporting it |
 | **Factions** | The competing wings inside the party |
-| **Ideology** | What those factions and voters actually believe |
+| **Ideology** | The political beliefs and priorities of those factions and voters |
 
 Those four things can move at different speeds.
 
@@ -394,7 +394,7 @@ Southern Democratic organizations and politicians were the major political defen
 
 **Leaves out:**
 
-The growing Northern liberal Democratic wing, Black voters' New Deal-era movement toward Democrats, the 1948 Dixiecrat revolt, and the later collapse of the old Southern Democratic system.
+The growing Northern liberal Democratic wing, Black voters' New Deal-era movement toward Democrats, the 1948 Dixiecrat breakaway, and the later collapse of the old Southern Democratic system.
 
 ---
 
@@ -474,7 +474,7 @@ Which regions, racial groups, economic interests, religions, social classes, and
 
 Was this a liberal Republican? A conservative Democrat? A Southern Democrat? A progressive Republican?
 
-### 4. What did this person actually believe?
+### 4. What political positions did this person hold?
 
 The party label alone is not enough to answer this question.
 
