@@ -132,7 +132,7 @@ By 1860, the sectional conflict over slavery had become strong enough to split t
 
 ---
 
-# Republicans really did lead emancipation and Reconstruction
+# Emancipation, abolition, and Reconstruction
 
 This part does not require reinterpretation.
 
