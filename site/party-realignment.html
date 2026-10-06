@@ -6,6 +6,9 @@
   <meta name="color-scheme" content="light">
   <title>How America's Political Parties Changed</title>
   <meta name="description" content="An interactive, mobile-first textbook entry about American party realignment and ideological sorting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700;8..60,800&display=swap" rel="stylesheet">
   <style>
     :root{
       --paper:#f7f2e8;
@@ -25,7 +28,10 @@
       --radius-sm:10px;
       --radius-md:18px;
       --radius-lg:26px;
-      --content:46rem;
+      --content:52rem;
+      --reading:43rem;
+      --font-body:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+      --font-display:"Source Serif 4",Georgia,"Times New Roman",serif;
       --tap:44px;
     }
 
@@ -35,7 +41,7 @@
       margin:0;
       background:var(--paper);
       color:var(--ink);
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-family:var(--font-body);
       line-height:1.65;
       font-size:17px;
     }
@@ -104,9 +110,24 @@
     main{display:block}
 
     .hero{
+      position:relative;
+      isolation:isolate;
       max-width:var(--content);
       margin:0 auto;
-      padding:3.2rem 1rem 2rem;
+      padding:3.4rem 1rem 2.4rem;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      z-index:-1;
+      inset:0 calc(50% - 50vw);
+      background:
+        linear-gradient(rgba(40,72,93,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(40,72,93,.045) 1px, transparent 1px),
+        linear-gradient(180deg,#faf6ed 0%,#f7f2e8 100%);
+      background-size:28px 28px,28px 28px,100% 100%;
+      border-bottom:1px solid var(--line);
     }
 
     .eyebrow{
@@ -123,32 +144,44 @@
       text-transform:uppercase;
     }
 
-    h1,h2,h3{
-      font-family:ui-rounded,"Arial Rounded MT Bold",system-ui,sans-serif;
-      line-height:1.08;
-      letter-spacing:-.025em;
+    h1,h2{
+      font-family:var(--font-display);
+      line-height:1.02;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+    }
+
+    h3{
+      font-family:var(--font-body);
+      line-height:1.15;
+      letter-spacing:-.015em;
       text-wrap:balance;
     }
 
     h1{
-      font-size:clamp(2.3rem,11vw,4.7rem);
+      font-size:clamp(2.65rem,11vw,5rem);
       margin:.9rem 0 1rem;
-      max-width:12ch;
+      max-width:11ch;
+      font-weight:750;
     }
 
     .dek{
-      font-size:1.14rem;
+      font-size:1.12rem;
       color:#35424d;
-      max-width:42rem;
+      max-width:var(--reading);
       margin:0 0 1.2rem;
+      line-height:1.55;
     }
 
     .big-idea{
-      margin:1.5rem 0;
-      padding:1rem 0 1rem 1rem;
+      margin:1.7rem 0;
+      padding:.35rem 0 .35rem 1rem;
       border-left:5px solid var(--gold);
-      font-weight:750;
-      font-size:1.18rem;
+      font-family:var(--font-display);
+      font-weight:700;
+      font-size:clamp(1.35rem,5vw,1.8rem);
+      line-height:1.18;
+      max-width:31rem;
     }
 
     .hero-actions{
@@ -156,6 +189,38 @@
       flex-wrap:wrap;
       gap:.7rem;
       margin-top:1.3rem;
+    }
+
+    .era-nav{
+      display:flex;
+      gap:.35rem;
+      margin-top:2rem;
+      overflow-x:auto;
+      padding:.25rem 0 .7rem;
+      scrollbar-width:thin;
+      scroll-snap-type:x proximity;
+      -webkit-overflow-scrolling:touch;
+    }
+
+    .era-nav a{
+      flex:0 0 auto;
+      min-height:40px;
+      display:inline-flex;
+      align-items:center;
+      padding:.45rem .72rem;
+      border-bottom:2px solid transparent;
+      color:var(--muted);
+      text-decoration:none;
+      font-size:.82rem;
+      font-weight:750;
+      white-space:nowrap;
+      scroll-snap-align:start;
+    }
+
+    .era-nav a:hover,
+    .era-nav a:focus-visible{
+      color:var(--ink);
+      border-bottom-color:var(--gold);
     }
 
     .btn{
@@ -193,9 +258,38 @@
     }
 
     .chapter{
+      position:relative;
       scroll-margin-top:5rem;
-      padding:2.8rem 0;
+      padding:3.4rem 0;
       border-top:1px solid var(--line);
+    }
+
+    .chapter > p,
+    .chapter > .quote{
+      max-width:var(--reading);
+    }
+
+    .chapter[data-era]::after{
+      content:attr(data-era);
+      position:absolute;
+      z-index:-1;
+      top:2.15rem;
+      right:0;
+      font-family:var(--font-display);
+      font-size:clamp(3.4rem,10vw,6rem);
+      font-weight:800;
+      letter-spacing:-.06em;
+      color:rgba(40,72,93,.055);
+      pointer-events:none;
+    }
+
+    .chapter.era-shift{
+      margin:1rem -1rem;
+      padding:3.4rem 1rem;
+      background:rgba(255,253,248,.62);
+      border:1px solid rgba(216,208,195,.85);
+      border-radius:var(--radius-lg);
+      box-shadow:0 16px 50px rgba(23,34,45,.045);
     }
 
     .step{
@@ -211,20 +305,25 @@
     }
 
     .step-num{
-      width:2rem;
-      height:2rem;
+      width:2.15rem;
+      height:2.15rem;
       display:inline-grid;
       place-items:center;
       border-radius:50%;
       background:var(--ink);
       color:var(--white);
+      border:3px solid var(--paper);
+      outline:1px solid rgba(23,34,45,.18);
+      font-family:var(--font-display);
+      font-weight:800;
       letter-spacing:0;
     }
 
     .chapter h2{
-      font-size:clamp(1.85rem,8vw,3rem);
-      margin:.2rem 0 1rem;
-      max-width:18ch;
+      font-size:clamp(2rem,8vw,3.25rem);
+      margin:.2rem 0 1.1rem;
+      max-width:19ch;
+      font-weight:720;
     }
 
     .chapter h3{
@@ -257,35 +356,41 @@
     .model-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:.7rem;
-      margin:1.2rem 0;
+      gap:.75rem;
+      margin:1.35rem 0 1.5rem;
     }
 
     .layer-button{
       appearance:none;
+      position:relative;
       text-align:left;
-      min-height:108px;
-      border:1px solid var(--line);
-      border-radius:var(--radius-md);
-      padding:1rem;
+      min-height:0;
+      border:1px solid rgba(23,34,45,.12);
+      border-radius:15px;
+      padding:.95rem 1rem 1rem;
       background:var(--paper-2);
       color:var(--ink);
       cursor:pointer;
       font:inherit;
-      box-shadow:none;
+      display:grid;
+      align-content:start;
+      gap:.5rem;
+      box-shadow:0 4px 0 rgba(23,34,45,.045);
     }
 
     .layer-button strong{
       display:block;
-      font-family:ui-rounded,"Arial Rounded MT Bold",system-ui,sans-serif;
-      font-size:1.05rem;
-      margin-bottom:.2rem;
+      font-family:var(--font-body);
+      font-size:1.02rem;
+      line-height:1.15;
+      margin:0;
     }
 
     .layer-button span{
-      color:var(--muted);
-      font-size:.88rem;
+      color:#47545f;
+      font-size:.84rem;
       line-height:1.35;
+      text-wrap:pretty;
     }
 
     .layer-button:nth-child(1){background:var(--slate-2)}
@@ -308,8 +413,10 @@
     .compare-panel.alt{border-left-color:var(--gold)}
 
     .compare-panel h3{
-      margin:0 0 .55rem;
-      font-size:1.15rem;
+      margin:0 0 .65rem;
+      font-family:var(--font-display);
+      font-size:1.28rem;
+      font-weight:700;
     }
 
     .clean-list{
@@ -495,7 +602,8 @@
     }
 
     .dialog-head h2{
-      font-size:1.45rem;
+      font-family:var(--font-display);
+      font-size:1.55rem;
       margin:0;
     }
 
@@ -544,7 +652,9 @@
       body{font-size:18px}
       .hero{padding-top:4.8rem}
       .compare{grid-template-columns:1fr 1fr}
-      .model-grid{grid-template-columns:repeat(4,1fr)}
+      .model-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+      .layer-button{padding:1rem 1.05rem 1.05rem}
+      .chapter.era-shift{margin:1.2rem -1.35rem;padding:3.6rem 1.35rem}
       dialog{
         margin:auto;
         border-radius:var(--radius-lg);
@@ -592,6 +702,15 @@
         <button class="btn btn-secondary" type="button" data-dialog="glossaryDialog">Glossary</button>
         <button class="btn btn-secondary" type="button" data-dialog="sourcesDialog">Sources</button>
       </div>
+
+      <nav class="era-nav" aria-label="Jump through the timeline">
+        <a href="#whigs">1830s · Whigs</a>
+        <a href="#slavery-breaks">1850s · Party crisis</a>
+        <a href="#reconstruction">1860s · Reconstruction</a>
+        <a href="#new-deal">1930s–40s · New Deal</a>
+        <a href="#1960-1964">1960s · Civil rights</a>
+        <a href="#sorting">Later · Sorting</a>
+      </nav>
     </header>
 
     <article class="lesson">
@@ -603,19 +722,19 @@
         <div class="model-grid">
           <button class="layer-button" type="button" data-dialog="partyDialog">
             <strong>Party</strong>
-            <span>The organization and name.</span>
+            <span>The name and institution.</span>
           </button>
           <button class="layer-button" type="button" data-dialog="coalitionDialog">
             <strong>Coalition</strong>
-            <span>The voters and groups inside it.</span>
+            <span>The voters and groups.</span>
           </button>
           <button class="layer-button" type="button" data-dialog="factionDialog">
             <strong>Faction</strong>
-            <span>The competing wings.</span>
+            <span>Competing wings.</span>
           </button>
           <button class="layer-button" type="button" data-dialog="ideologyDialog">
             <strong>Ideology</strong>
-            <span>What people actually believe.</span>
+            <span>Political beliefs.</span>
           </button>
         </div>
 
@@ -627,7 +746,7 @@
         <p>That is the key to the whole chapter. Party organizations can continue while their coalitions, factions, and ideas change.</p>
       </section>
 
-      <section class="chapter" id="whigs">
+      <section class="chapter" id="whigs" data-era="1830s">
         <div class="step"><span class="step-num">2</span> The old party system</div>
         <h2>Before Republicans: Democrats and Whigs</h2>
         <p>By the 1830s, the main national competition was between Andrew Jackson's Democrats and the Whigs.</p>
@@ -663,7 +782,7 @@
         <button class="btn btn-plain source-button" type="button" data-dialog="sourcesDialog">See the evidence for this section →</button>
       </section>
 
-      <section class="chapter" id="slavery-breaks">
+      <section class="chapter era-shift" id="slavery-breaks" data-era="1850s">
         <div class="step"><span class="step-num">3</span> The system breaks</div>
         <h2>Slavery breaks the old party system</h2>
         <p>By the 1850s, the question of whether slavery would expand into new western territories became harder for the old parties to contain.</p>
@@ -687,7 +806,7 @@
           </div>
         </div>
 
-        <h3>The actual family tree</h3>
+        <h3>A simplified party lineage</h3>
         <div class="flow" aria-label="Simplified Republican Party formation">
           <div class="flow-row">Many Northern Whigs</div>
           <div class="flow-arrow">↓</div>
@@ -702,7 +821,7 @@
         </div>
       </section>
 
-      <section class="chapter" id="republicans">
+      <section class="chapter" id="republicans" data-era="1850s">
         <div class="step"><span class="step-num">4</span> The new coalition</div>
         <h2>The early Republican coalition</h2>
         <p>The early Republican Party was built primarily around stopping the <strong>extension of slavery</strong> into the territories.</p>
@@ -716,7 +835,7 @@
         <button class="btn btn-secondary" type="button" data-dialog="platformDialog">Look closer at the 1856–1860 platforms</button>
       </section>
 
-      <section class="chapter" id="reconstruction">
+      <section class="chapter era-shift" id="reconstruction" data-era="1860s">
         <div class="step"><span class="step-num">5</span> Civil War and after</div>
         <h2>Emancipation, abolition, and Reconstruction</h2>
         <p>Lincoln was a Republican, and the Republican Party became the principal national political force behind emancipation, abolition, and Reconstruction.</p>
@@ -731,7 +850,7 @@
         <p>To answer that second question, we have to keep following the coalition.</p>
       </section>
 
-      <section class="chapter" id="mixed-parties">
+      <section class="chapter" id="mixed-parties" data-era="1900s">
         <div class="step"><span class="step-num">6</span> Mid-century coalitions</div>
         <h2>Both parties contained broad ideological wings</h2>
         <p>For much of the twentieth century, knowing someone's party did not tell you their ideology as reliably as it often does now.</p>
@@ -767,7 +886,7 @@
         </div>
       </section>
 
-      <section class="chapter" id="new-deal">
+      <section class="chapter era-shift" id="new-deal" data-era="1930s">
         <div class="step"><span class="step-num">7</span> Another realignment</div>
         <h2>The New Deal moves Black voters</h2>
         <p>After the Civil War, Black voters had powerful reasons to identify with the Republican Party: Lincoln, emancipation, Reconstruction, and the Reconstruction Amendments.</p>
@@ -792,7 +911,7 @@
         </div>
       </section>
 
-      <section class="chapter" id="1948">
+      <section class="chapter" id="1948" data-era="1948">
         <div class="step"><span class="step-num">8</span> Civil-rights division</div>
         <h2>1948: civil rights divides the Democratic coalition</h2>
         <p>The Democratic coalition now contained Northern liberals, Black voters, labor, urban voters—and a powerful Southern segregationist wing.</p>
@@ -812,7 +931,7 @@
         <p>This did not immediately transform the entire Democratic Party. It showed that the national party's growing civil-rights commitments were becoming increasingly difficult to reconcile with its segregationist Southern wing.</p>
       </section>
 
-      <section class="chapter" id="1960-1964">
+      <section class="chapter era-shift" id="1960-1964" data-era="1964">
         <div class="step"><span class="step-num">9</span> The hinge years</div>
         <h2>1960 and 1964: sorting is underway</h2>
         <p>In 1960, <strong>both national parties</strong> endorsed substantial civil-rights action in their platforms.</p>
@@ -828,7 +947,7 @@
         </div>
       </section>
 
-      <section class="chapter" id="south">
+      <section class="chapter" id="south" data-era="1960s+">
         <div class="step"><span class="step-num">10</span> Slow realignment</div>
         <h2>The Southern realignment unfolded over decades</h2>
         <p>Presidential voting, congressional voting, state and local offices, and individual party affiliation did not all change at the same pace. A conservative Southern Democrat elected in 1950 might remain a Democrat until retirement, while a younger conservative seeking the same office decades later might run as a Republican.</p>
@@ -860,7 +979,7 @@
         <p>The evidence supports treating race and civil rights as a central axis of the Southern realignment within a larger, decades-long restructuring of American politics.</p>
       </section>
 
-      <section class="chapter" id="sorting">
+      <section class="chapter era-shift" id="sorting" data-era="TODAY">
         <div class="step"><span class="step-num">12</span> The modern shape</div>
         <h2>The factions sort</h2>
         <p>Over time, conservative Democrats became less common. Liberal and moderate Republicans became less common. The parties became more internally consistent.</p>
@@ -917,19 +1036,19 @@
         <div class="model-grid">
           <button class="layer-button" type="button" data-dialog="partyDialog">
             <strong>1. Party</strong>
-            <span>What organization?</span>
+            <span>The institution.</span>
           </button>
           <button class="layer-button" type="button" data-dialog="coalitionDialog">
             <strong>2. Coalition</strong>
-            <span>Who supported it?</span>
+            <span>The supporters.</span>
           </button>
           <button class="layer-button" type="button" data-dialog="factionDialog">
             <strong>3. Faction</strong>
-            <span>Which wing?</span>
+            <span>The party wing.</span>
           </button>
           <button class="layer-button" type="button" data-dialog="ideologyDialog">
             <strong>4. Ideology</strong>
-            <span>What did they believe?</span>
+            <span>The beliefs.</span>
           </button>
         </div>
 
