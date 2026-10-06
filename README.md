@@ -25,6 +25,13 @@ The book is designed to:
 - [Party Realignment Source Package](research/party-realignment/SOURCE_PACKAGE.md)
 - [Independent Review Request](research/party-realignment/REVIEW_REQUEST.md)
 
+## Interactive textbook prototype
+
+- [Party Realignment HTML](site/party-realignment.html) — mobile-first interactive textbook treatment of the first manuscript entry.
+- [Interactive Design Brief](site/DESIGN.md) — exact Design Bible decisions, modal rules, mobile behavior, accessibility target, and anti-pattern checks.
+
+The HTML is self-contained: CSS and JavaScript are embedded so it can be opened locally without a build step.
+
 ## Worked examples
 
 ### Party change and ideological realignment
