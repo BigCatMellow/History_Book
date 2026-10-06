@@ -17,6 +17,19 @@ The book is designed to:
 - [Method Sources](docs/METHOD_SOURCES.md) — exact upstream MAPS_L, Rung, THINK, PLAN, philosophy, and Design Bible sources used by this project.
 - [AGENTS.md](AGENTS.md) — repository-wide operating contract for agents working on this project.
 
+
+## Worked examples
+
+### Party change and ideological realignment
+
+First full test of the build system:
+
+- [Build Record](examples/party-realignment/BUILD_RECORD.md) — THINK, PLAN, evidence states, claim-evidence matrix, causation checks, and review risk.
+- [Reader-Facing Draft](examples/party-realignment/SECTION_DRAFT.md) — the actual section produced from that process.
+- [Author Check](examples/party-realignment/AUTHOR_CHECK.md) — acceptance check and limitations before independent review.
+
+This example remains `READY_FOR_REVIEW`, not `DONE`, because its required fresh independent review has not yet occurred.
+
 ## System in one view
 
 ```text
